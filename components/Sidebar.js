@@ -2,7 +2,7 @@ import Image from 'next/image'
 import React, { useContext} from 'react'
 // import { ConnectButton} from 'web3uikit'
 
-const isAuthenticated = false
+const isAuthenticated = true
 const username = 'Joel'
 const Sidebar = () => {
     const styles = {
@@ -19,6 +19,7 @@ const Sidebar = () => {
                    <>
                     <div className={styles.profilePicContainer}>
                         <Image
+                        src={`https://avatars.dicebear.com/api/pixel-art/${username}.svg`}
                         alt= 'profile'
                         className={styles.profilePic}
                         height={100}
