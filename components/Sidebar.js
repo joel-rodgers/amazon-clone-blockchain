@@ -8,9 +8,10 @@ import { FaBox } from 'react-icons/fa'
 import { BsFillBookmarkFill } from 'react-icons/bs'
 import { BsFillPersonFill } from 'react-icons/bs'
 import { AiOutlineHistory } from 'react-icons/ai'
+import { AmazonContext } from '../context/AmazonContext'
 
-const isAuthenticated = true
-const username = 'Joel'
+
+
 const Sidebar = () => {
     const styles = {
         container: `h-full w-[300px] flex flex-col bg-[#fff] static`,
@@ -26,6 +27,16 @@ const Sidebar = () => {
         amazonLogo: `mr-4 flex object-cover`,
         companyName: `text-lg font-bold flex flex-1 pl-10 items-center mt-[20px]`,
     }
+
+    
+    const {
+        isAuthenticated,
+        nickname,
+        setNickname,
+        username,
+        handleSetUsername,
+    } = useContext(AmazonContext)
+
     return (
         <div className={styles.container}>
             <div className={styles.profile}>
@@ -47,14 +58,14 @@ const Sidebar = () => {
                                 type= 'text'
                                 placeholder='Username...'
                                 className={styles.usernameInput}
-                                // value = {nickname}
-                                // onChange ={e => setNickname(e.target.value)}
+                                value = {nickname}
+                                onChange ={e => setNickname(e.target.value)}
 
                             /> 
                         </div>
                         <button
                         className={styles.setNickname}
-                        // onClick={handleSetUsername}
+                        onClick={handleSetUsername}
                         >
                         Set Nickname
                         </button>
